@@ -4,23 +4,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sravani Thonta — Frontend Developer</title>
-  <meta name="description" content="Portfolio of Sravani Thonta — BTech ECE 2024, aspiring Frontend Developer. Projects, skills, internships, and contact." />
+  <meta name="description" content="Portfolio of Sravani Thonta — BTech ECE 2024, aspiring Frontend Developer (HTML, CSS, JS). Projects, skills, internships, and contact." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Decorative blobs -->
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#hero" aria-label="Go to top">
+      <a class="brand" href="#hero">
         <span class="logo">ST</span>
         <span class="brand-text">Sravani<span class="accent">Thonta</span></span>
       </a>
-      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav">☰</button>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false">☰</button>
       <nav id="nav" class="main-nav">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -45,14 +46,14 @@
           <a class="btn outline" href="#contact">Contact</a>
         </div>
         <ul class="social">
-          <li><a href="mailto:sravanithonta79@gmail.com" aria-label="Email">Email</a></li>
-          <li><a href="https://www.linkedin.com/in/sravanithonta" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://github.com/SravaniThonta" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="mailto:sravanithonta79@gmail.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/sravanithonta" target="_blank">LinkedIn</a></li>
+          <li><a href="https://github.com/SravaniThonta" target="_blank">GitHub</a></li>
         </ul>
       </div>
 
-      <aside class="hero-card reveal-delayed" aria-label="Profile">
-        <div class="avatar" aria-hidden="true">S</div>
+      <aside class="hero-card reveal-delayed">
+        <div class="avatar">S</div>
         <h2>Open to Opportunities</h2>
         <p>Andhra Pradesh, India</p>
         <p class="mini">Learning HTML & CSS at Tap Academy — focusing on responsive, elegant UI.</p>
@@ -61,7 +62,7 @@
         </div>
       </aside>
     </div>
-    <a class="scroll-down" href="#about" aria-label="Scroll to about">▾</a>
+    <a class="scroll-down" href="#about">▾</a>
   </main>
 
   <section id="about" class="section">
@@ -113,25 +114,24 @@
     <div class="container">
       <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
-
         <article class="project-card tilt reveal">
           <div class="project-media">
-            <img src="https://raw.githubusercontent.com/SravaniThonta/quiz-challenge/main/preview.png" alt="Quiz Challenge project screenshot" onerror="this.src='project-fallback.png'">
+            <img src="https://raw.githubusercontent.com/SravaniThonta/quiz-challenge/main/preview.png" alt="Quiz Challenge screenshot">
           </div>
           <div class="project-body">
             <h3>Quiz Challenge</h3>
             <p class="muted">Interactive quiz app to test knowledge with a clean UI.</p>
             <p class="stack"><strong>Stack:</strong> HTML, CSS, JS</p>
             <div class="project-actions">
-              <a class="btn" href="https://github.com/SravaniThonta/quiz-challenge" target="_blank" rel="noopener">View Code</a>
-              <a class="btn outline" href="https://sravanithonta.github.io/quiz-challenge/" aria-disabled="true">Live Demo</a>
+              <a class="btn" href="https://github.com/SravaniThonta/quiz-challenge" target="_blank">View Code</a>
+              <a class="btn outline" href="https://sravanithonta.github.io/quiz-challenge/">Live Demo</a>
             </div>
           </div>
         </article>
 
         <article class="project-card tilt reveal">
           <div class="project-media">
-            <img src="project-placeholder.svg" alt="Landing page project placeholder">
+            <img src="project-placeholder.svg" alt="Beautiful Landing Page screenshot">
           </div>
           <div class="project-body">
             <h3>Beautiful Landing Page</h3>
@@ -144,6 +144,20 @@
           </div>
         </article>
 
+        <article class="project-card tilt reveal">
+          <div class="project-media">
+            <img src="project-placeholder.svg" alt="Mini CSS Components screenshot">
+          </div>
+          <div class="project-body">
+            <h3>Mini CSS Components</h3>
+            <p class="muted">Reusable buttons, cards, badges, and navbars in pure CSS.</p>
+            <p class="stack"><strong>Stack:</strong> HTML, CSS</p>
+            <div class="project-actions">
+              <a class="btn outline" href="#" aria-disabled="true">Code coming soon</a>
+              <a class="btn outline" href="#" aria-disabled="true">Demo coming soon</a>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -161,7 +175,6 @@
             <li>Maintained relationships to support business growth.</li>
           </ul>
         </div>
-
         <div class="timeline-item reveal">
           <div class="dot"></div>
           <h3>Volunteer — Pledge A Smile Foundation</h3>
@@ -212,8 +225,8 @@
         <p>Open to internships & entry-level roles. Let’s build something great.</p>
         <ul class="contact-list">
           <li><strong>Email:</strong> <a href="mailto:sravanithonta79@gmail.com">sravanithonta79@gmail.com</a></li>
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sravanithonta" target="_blank" rel="noopener">linkedin.com/in/sravanithonta</a></li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/SravaniThonta" target="_blank" rel="noopener">github.com/SravaniThonta</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sravanithonta" target="_blank">linkedin.com/in/sravanithonta</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/SravaniThonta" target="_blank">github.com/SravaniThonta</a></li>
         </ul>
       </div>
 
@@ -247,9 +260,6 @@
 </html>
 
 
+  
 
-
-
-
-
-
+    
