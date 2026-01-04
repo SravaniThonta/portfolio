@@ -312,5 +312,34 @@ img {
     display: inline-block;
   }
 }
+/* Reveal animation */
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.7s ease;
+}
+.section, .skill-card, .project-card, .timeline-item {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Mobile nav active */
+.main-nav.active {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: absolute;
+  top: 60px;
+  right: 1rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.nav-toggle.open {
+  transform: rotate(90deg);
+}
+
+
 
 
