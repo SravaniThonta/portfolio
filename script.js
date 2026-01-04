@@ -1,84 +1,56 @@
-// Mobile navigation toggle
-const navToggle = document.getElementById('nav-toggle');
-const nav = document.getElementById('nav');
+// ===== Mobile Navigation Toggle =====
+const navToggle = document.querySelector('.nav-toggle');
+const mainNav = document.querySelector('.main-nav');
 
-if (navToggle && nav) {
-  navToggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
-  });
+navToggle.addEventListener('click', () => {
+  mainNav.classList.toggle('active');
+  navToggle.classList.toggle('open');
+});
 
-  // Close nav when a link is clicked (mobile)
-  nav.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    })
-  );
-}
-
-// Smooth scroll for internal links
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    const targetId = link.getAttribute('href');
-    if (targetId && targetId.length > 1) {
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+// ===== Smooth Scroll for Anchor Links =====
+const links = document.querySelectorAll('a[href^="#"]');
+links.forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+    // Close nav on mobile after click
+    mainNav.classList.remove('active');
+    navToggle.classList.remove('open');
   });
 });
 
-// Reveal elements on scroll
-const revealEls = document.querySelectorAll('.reveal, .reveal-delayed');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
+// ===== Scroll Reveal Animations =====
+const revealElements = document.querySelectorAll('.section, .skill-card, .project-card, .timeline-item');
+
+const revealOnScroll = () => {
+  const triggerBottom = window.innerHeight * 0.85;
+  revealElements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < triggerBottom) {
+      el.classList.add('reveal');
+    } else {
+      el.classList.remove('reveal');
     }
   });
-}, { threshold: 0.14 });
-revealEls.forEach(el => observer.observe(el));
+};
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
-// Subtle 3D tilt effect for project cards
-document.querySelectorAll('.tilt').forEach(card => {
-  let rect;
-  const damp = 28; // lower = stronger tilt
-
-  card.addEventListener('mouseenter', () => rect = card.getBoundingClientRect());
-
-  card.addEventListener('mousemove', e => {
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const rx = ((y / rect.height) - 0.5) * -damp;
-    const ry = ((x / rect.width) - 0.5) * damp;
-    card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
-
-// Simple contact form handler (client-side demo only)
-function handleContact(e) {
-  e.preventDefault();
-  const form = e.target;
-  const data = {
-    name: form.name.value.trim(),
-    email: form.email.value.trim(),
-    message: form.message.value.trim()
+// ===== Optional: Typing effect for hero =====
+const heroText = document.querySelector('.hero-copy h1');
+if (heroText) {
+  const text = heroText.textContent;
+  heroText.textContent = '';
+  let i = 0;
+  const type = () => {
+    if (i < text.length) {
+      heroText.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 100);
+    }
   };
-
-  if (!data.name || !data.email || !data.message) {
-    alert('Please fill all fields.');
-    return false;
-  }
-
-  alert('Thanks! Your message is noted (demo). Connect this form to Formspree, Netlify Forms, or a backend to receive emails.');
-  form.reset();
-  return false;
+  type();
 }
